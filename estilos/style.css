@@ -1,0 +1,122 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px; /* Ajusta según el ancho deseado */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+header {
+    background-color: #f8f8f8;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el logo y el título */
+}
+
+.logo {
+    width: 60px; /* Ajusta el tamaño del logo según necesites */
+    height: auto;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ffcc00, #ff4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login {
+    display: flex;
+    gap: 10px; /* Espacio entre los inputs */
+    padding: 25px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login input[type="submit"] {
+    padding: 5px 15px;
+    font-size: 1rem;
+    border: none;
+    color: #333;
+    background: linear-gradient(45deg, #ffcc00, #ff4444);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.search-container,
+.results-container {
+    max-width: 1200px; /* Ajusta según el ancho deseado */
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.search-container form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%; /* Ajusta para usar todo el ancho del contenedor */
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
