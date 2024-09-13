@@ -5,27 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo-title">
-            <img src="imagenes/logo.png" alt="" class="logo">
-            <h1>Pokedex</h1>
-        </div>
-        <form action="" method="post" class="login">
-            <input type="text" name="" id="" placeholder="Usuario">
-            <input type="password" name="" id="" placeholder="Contraseña">
-            <input type="submit" value="Ingresar">
-        </form>
-    </div>
-</header>
+<?php include_once("header.php") ?>
 
 <div class="search-container">
     <form action="" method="get">
-        <input type="text" name="search" placeholder="Ingrese el nombre o tipo de Pokémon">
-        <input type="submit" value="Buscar">
+        <input type="text" name="buscarPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
+        <input type="submit" name="buscar" value="Buscar">
     </form>
 </div>
 
