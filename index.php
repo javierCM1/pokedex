@@ -33,7 +33,6 @@
             include_once("AccesoDB.php");
             include_once("PokemonNegocio.php");
 
-            $pokeNegocio = new PokemonNegocio(new AccesoDB());
             $listaPokemon = $pokeNegocio->getPokemonList();
 
             foreach ($listaPokemon as $pokemon){?>
