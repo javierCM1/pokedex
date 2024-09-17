@@ -11,12 +11,11 @@ body {
 }
 
 .container {
-    max-width: 1200px; /* Ajusta según el ancho deseado */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
-
 
 }
 
@@ -28,11 +27,11 @@ header {
 .logo-title {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el logo y el título */
+    gap: 10px;
 }
 
 .logo {
-    width: 60px; /* Ajusta el tamaño del logo según necesites */
+    width: 60px;
     height: auto;
 }
 
@@ -49,7 +48,7 @@ h1 {
 
 .login {
     display: flex;
-    gap: 10px; /* Espacio entre los inputs */
+    gap: 10px;
     padding: 25px;
 }
 
@@ -79,7 +78,7 @@ h1 {
 
 .search-container,
 .results-container {
-    max-width: 1200px; /* Ajusta según el ancho deseado */
+    max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
 }
@@ -107,7 +106,7 @@ h1 {
 }
 
 table {
-    width: 100%; /* Ajusta para usar todo el ancho del contenedor */
+    width: 100%;
     margin: 20px auto;
     border-collapse: collapse;
 }
