@@ -12,9 +12,9 @@
 <?php include_once("header.php") ?>
 
 <div class="search-container">
-    <form action="" method="get">
-        <input type="text" name="buscarPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
-        <input type="submit" name="buscar" value="Buscar">
+    <form action="procesarFiltro.php" method="post">
+        <input type="text" name="filtroPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
+        <input type="submit" name="buscarPokemon" value="Buscar">
     </form>
 </div>
 
@@ -23,46 +23,52 @@
         <thead>
         <tr>
             <th>Imagen</th>
-            <th>Tipo</th>
-            <th>Número</th>
             <th>Nombre</th>
+            <th>Número</th>
+            <th>Tipo</th>
         </tr>
         </thead>
         <tbody>
         <?php
+            include_once("AccesoDB.php");
+            include_once("PokemonNegocio.php");
 
-        $host = 'localhost';
-        $dbname = 'pokedex_db';
-        $username = 'root';
-        $password = '';
+            $pokeNegocio = new PokemonNegocio(new AccesoDB());
+            $listaPokemon = $pokeNegocio->getPokemonList();
 
-        try {
-            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-            $query = $pdo->query("SELECT * FROM pokemon");
-
-
-            $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-            for ($i = 0; $i < count($resultados); $i++) {
-                echo "<tr>";
-                echo "<td><img src='" . ($resultados[$i]['img_pokemon']) . "' alt='" . "' width='80' height='80'></td>";
-                echo "<td><img src='" . "tipo/tipo" . ($resultados[$i]['id_tipo']) . ".png"  . "' alt='" . "' width='50' height='50'></td>";
-                echo "<td>" . ($resultados[$i]['id_pokemon']) . "</td>";
-                echo "<td>" . ($resultados[$i]['nombre_pokemon']) . "</td>";
-                echo "</tr>";
+            foreach ($listaPokemon as $pokemon){?>
+                <tr>
+                    <td> <?php echo $pokemon->getImg() ?> </td>
+                    <td> <?php echo $pokemon->getNombre() ?> </td>
+                    <td> <?php echo $pokemon->getUuid() ?> </td>
+                    <td> <?php echo $pokemon->getTipo()->getDescripcion() ?> </td>
+                </tr>
+                <?php
             }
-
-        } catch (PDOException $e) {
-            echo "<tr><td colspan='4'>Error de conexión: " . $e->getMessage() . "</td></tr>";
-        }
         ?>
-
-
         </tbody>
     </table>
+
+    <!-- PRUEBAS ABM COMIENZO -->
+    <form action="agregarPokemon.php">
+        <div>
+            <input type="submit" name="addPokemon" value="Agregar pokemon">
+        </div>
+    </form>
+    <form action="eliminarPokemon.php" method="post">
+        <div>
+            <input type="number" name="idPokemon" placeholder="Ingresa el id del pokemon">
+        </div>
+        <div>
+            <input type="submit" name="deletePokemon" value="Eliminar pokemon">
+        </div>
+    </form>
+    <form action="modificarPokemon.php">
+        <div>
+            <input type="submit" name="modifyPokemon" value="Modificar pokemon">
+        </div>
+    </form>
+    <!-- PRUEBAS ABM FIN -->
 </div>
 
 </body>
