@@ -12,9 +12,9 @@
 <?php include_once("header.php") ?>
 
 <div class="search-container">
-    <form action="" method="get">
-        <input type="text" name="buscarPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
-        <input type="submit" name="buscar" value="Buscar">
+    <form action="procesarFiltro.php" method="post">
+        <input type="text" name="filtroPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
+        <input type="submit" name="buscarPokemon" value="Buscar">
     </form>
 </div>
 
@@ -29,9 +29,46 @@
         </tr>
         </thead>
         <tbody>
-        <!-- Aquí se cargarán los resultados de la búsqueda -->
+        <?php
+            include_once("AccesoDB.php");
+            include_once("PokemonNegocio.php");
+
+            $pokeNegocio = new PokemonNegocio(new AccesoDB());
+            $listaPokemon = $pokeNegocio->getPokemonList();
+
+            foreach ($listaPokemon as $pokemon){?>
+                <tr>
+                    <td> <?php echo $pokemon->getImg() ?> </td>
+                    <td> <?php echo $pokemon->getNombre() ?> </td>
+                    <td> <?php echo $pokemon->getUuid() ?> </td>
+                    <td> <?php echo $pokemon->getTipo()->getDescripcion() ?> </td>
+                </tr>
+                <?php
+            }
+        ?>
         </tbody>
     </table>
+
+    <!-- PRUEBAS ABM COMIENZO -->
+    <form action="agregarPokemon.php">
+        <div>
+            <input type="submit" name="addPokemon" value="Agregar pokemon">
+        </div>
+    </form>
+    <form action="eliminarPokemon.php" method="post">
+        <div>
+            <input type="number" name="idPokemon" placeholder="Ingresa el id del pokemon">
+        </div>
+        <div>
+            <input type="submit" name="deletePokemon" value="Eliminar pokemon">
+        </div>
+    </form>
+    <form action="modificarPokemon.php">
+        <div>
+            <input type="submit" name="modifyPokemon" value="Modificar pokemon">
+        </div>
+    </form>
+    <!-- PRUEBAS ABM FIN -->
 </div>
 
 </body>
