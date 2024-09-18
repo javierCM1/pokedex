@@ -2,8 +2,6 @@
 //ARCHIVO TEMPORAL?
 include "AccesoDB.php";
 include "PokemonNegocio.php";
-include "Pokemon.php";
-include "Tipo.php";
 
 $datos = new AccesoDB();
 $pokeNegocio = new PokemonNegocio($datos);
