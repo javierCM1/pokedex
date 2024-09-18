@@ -5,27 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo-title">
-            <img src="imagenes/logo.png" alt="" class="logo">
-            <h1>Pokedex</h1>
-        </div>
-        <form action="" method="post" class="login">
-            <input type="text" name="" id="" placeholder="Usuario">
-            <input type="password" name="" id="" placeholder="Contraseña">
-            <input type="submit" value="Ingresar">
-        </form>
-    </div>
-</header>
+<?php include_once("header.php") ?>
 
 <div class="search-container">
-    <form action="" method="get">
-        <input type="text" name="search" placeholder="Ingrese el nombre o tipo de Pokémon">
-        <input type="submit" value="Buscar">
+    <form action="procesarFiltro.php" method="post">
+        <input type="text" name="filtroPokemon" placeholder="Ingrese el nombre o tipo de Pokémon">
+        <input type="submit" name="buscarPokemon" value="Buscar">
     </form>
 </div>
 
@@ -74,6 +63,30 @@
 
         </tbody>
     </table>
+
+    <!-- PRUEBAS ABM COMIENZO -->
+    <form action="agregarPokemon.php">
+        <div>
+            <input type="submit" name="addPokemon" value="Agregar pokemon">
+        </div>
+    </form>
+    <form action="eliminarPokemon.php" method="post">
+        <div>
+            <input type="number" name="idPokemon" placeholder="Ingresa el id del pokemon">
+        </div>
+        <div>
+            <input type="submit" name="deletePokemon" value="Eliminar pokemon">
+        </div>
+    </form>
+    <form action="modificarPokemon.php">
+        <div>
+            <input type="number" name="idPokemonMod" placeholder="Ingresa el id del pokemon">
+        </div>
+        <div>
+            <input type="submit" name="modifyPokemon" value="Modificar pokemon">
+        </div>
+    </form>
+    <!-- PRUEBAS ABM FIN -->
 </div>
 
 </body>
