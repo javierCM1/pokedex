@@ -74,4 +74,6 @@ class Pokemon
         $this->tipo = $tipo;
     }
 
+
+
 }
