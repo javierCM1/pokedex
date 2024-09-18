@@ -8,5 +8,7 @@ $filtro = $_POST["filtroPokemon"];
 
 $pokeNegocio->queryPokemonList($filtro);
 
-header("Location: index.php?");
-exit();
+var_dump($pokeNegocio->getPokemonList());
+
+//header("Location: index.php?");
+//exit();

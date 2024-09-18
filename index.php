@@ -29,22 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php
-            include_once("AccesoDB.php");
-            include_once("PokemonNegocio.php");
-
-            $listaPokemon = $pokeNegocio->getPokemonList();
-
-            foreach ($listaPokemon as $pokemon){?>
-                <tr>
-                    <td> <?php echo $pokemon->getImg() ?> </td>
-                    <td> <?php echo $pokemon->getNombre() ?> </td>
-                    <td> <?php echo $pokemon->getUuid() ?> </td>
-                    <td> <?php echo $pokemon->getTipo()->getDescripcion() ?> </td>
-                </tr>
-                <?php
-            }
-        ?>
+        
         </tbody>
     </table>
 
@@ -63,6 +48,9 @@
         </div>
     </form>
     <form action="modificarPokemon.php">
+        <div>
+            <input type="number" name="idPokemonMod" placeholder="Ingresa el id del pokemon">
+        </div>
         <div>
             <input type="submit" name="modifyPokemon" value="Modificar pokemon">
         </div>
