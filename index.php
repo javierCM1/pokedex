@@ -1,3 +1,8 @@
+<?php
+require_once ("Pokemon.php");
+require_once ("Tipo.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +34,18 @@
         </tr>
         </thead>
         <tbody>
-        
+        <?php
+        $listaPokemon = $_SESSION["listaPokemon"] ?? [];
+
+        foreach ($listaPokemon as $poke){
+            echo "<tr>";
+            echo "<td><img src='". ($poke->getImg()) ."' alt='" . "' width='80' height='80'></td>";
+            echo "<td>" . ($poke->getNombre()) . "</td>";
+            echo "<td>" . ($poke->getUuid()) . "</td>";
+            echo "<td><img src='"."tipo/tipo". ($poke->getTipo()->getId()) .".png" ."' alt='" . "' width='50' height='50'></td>";
+            echo "<tr>";
+        }
+        ?>
         </tbody>
     </table>
 

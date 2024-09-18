@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include "AccesoDB.php";
 include "PokemonNegocio.php";
 
@@ -7,8 +9,7 @@ $pokeNegocio = new PokemonNegocio($datos);
 $filtro = $_POST["filtroPokemon"];
 
 $pokeNegocio->queryPokemonList($filtro);
+$_SESSION["listaPokemon"] = $pokeNegocio->getPokemonList();
 
-var_dump($pokeNegocio->getPokemonList());
-
-//header("Location: index.php?");
-//exit();
+header("Location: index.php?");
+exit();

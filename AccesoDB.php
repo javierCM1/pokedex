@@ -4,7 +4,7 @@ class AccesoDB
 {
     private $conexion;
 
-    public function __construct($server = "localhost", $usuario = "root", $pass = "", $database = "pokedex")
+    public function __construct($server = "localhost", $usuario = "root", $pass = "", $database = "pokedex_db")
     {
         $this->conexion = new mysqli($server, $usuario, $pass, $database);
     }
