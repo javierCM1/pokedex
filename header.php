@@ -1,9 +1,13 @@
 <?php ?>
+
+
+<link rel="stylesheet" href="estilos/style.css">
+
 <header>
     <div class="container">
         <div class="logo-title">
             <a href="index.php" style="text-decoration: none">
-                <img src="imagenes/logo.png" alt="logo" class="logo">
+                <img src="/pokedex/imagenes/logo.png" alt="logo" class="logo">
             </a>
             <h1>Pokedex</h1>
         </div>

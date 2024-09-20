@@ -10,6 +10,9 @@ body {
     text-align: center;
 }
 
+
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -119,3 +122,42 @@ th, td {
     padding: 10px;
     text-align: left;
 }
+
+/* CSS PARA VIEW DE POKEMON ELEGIDO*/
+
+#datosPokemon{
+    display: flex;
+    border-color: red;
+    background: red;
+    flex-direction: column;
+
+}
+
+#seccionPokemon {
+    display: grid;
+    grid-template-columns: 0fr 2fr;
+    margin: 3em;
+}
+
+#tipoPokemon{
+    height: 2em;
+    width: 2em;
+    margin-right: 1em;
+}
+
+#nombrePokemon{
+    display: inline;
+}
+
+#idPokemon{
+    font-size: 2em;
+    display: inline;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+#perfilPokemon{
+    height: 20em;
+    width: 20em;
+}
+

@@ -35,6 +35,8 @@
         $dbname = 'pokedex_db';
         $username = 'root';
         $password = '';
+        
+        
 
         try {
             $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -43,12 +45,29 @@
 
 
             $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
-
+            
+            
+            
+         
+            
+    
             for ($i = 0; $i < count($resultados); $i++) {
+                
+                
+                
+                $nombreRuta = $resultados[$i]['img_pokemon'];
+                
+                $descripcionPokemon = $resultados[$i]['descripcion_pokemon'];
+                $pokemon = $resultados[$i]['nombre_pokemon'];
+                $idPokemon = $resultados[$i]['id_pokemon'];
+                
+                $tipo = 'tipo';
+                $ext = '.png';
+                
+                $tipoPokemon = $tipo.$resultados[$i]['id_tipo'].$ext;
+                
                 echo "<tr>";
-                echo "<td><img src='" . ($resultados[$i]['img_pokemon']) . "' alt='" . "' width='80' height='80'></td>";
+                echo "<td><a href='pokemonDisplay.php?tipo=$tipoPokemon&img_pokemon=$nombreRuta&descripcion=$descripcionPokemon&nombre_pokemon=$pokemon&id_pokemon=$idPokemon' ><img src='" . ($resultados[$i]['img_pokemon']) . "' alt='" . "' width='80' height='80'></a></td>";
                 echo "<td><img src='" . "tipo/tipo" . ($resultados[$i]['id_tipo']) . ".png"  . "' alt='" . "' width='50' height='50'></td>";
                 echo "<td>" . ($resultados[$i]['id_pokemon']) . "</td>";
                 echo "<td>" . ($resultados[$i]['nombre_pokemon']) . "</td>";
