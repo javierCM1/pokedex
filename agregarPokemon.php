@@ -20,7 +20,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
 <?php include_once 'headerAdmin.php'; ?>
 
 <div class="results-container">
-    <form action="procesarModificacion.php" method="post">
+    <form action="procesarAlta.php" method="post">
         <h1>Nuevo Pokemon</h1>
         <div>
             <label for="nombrePoke">Nombre: </label>
@@ -35,8 +35,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
             <input type="file" name="imgPoke">
         </div>
         <div>
+            <label for="tipoPokemon">Tipo de pokemon: </label>
             <select name="tipoPokemon">
-                <option value="" disabled selected>Tipo de pokemon...</option>
+                <option value="" disabled selected>Seleccione el tipo...</option>
                 <option value="1">Fuego</option>
                 <option value="2">Planta</option>
                 <option value="3">Tierra</option>

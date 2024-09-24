@@ -69,6 +69,8 @@ include ("buscador.php");
         ?>
         </tbody>
     </table>
+
+    <a href='agregarPokemon.php'><button style="background-color: #4CAF50; color: white;">Agregar Pokemon</button></a>
 </div>
 
 </body>
