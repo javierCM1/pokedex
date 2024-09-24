@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+    header("Location: index.php");
+    exit;
+}
+
 require_once ("AccesoDB.php");
 require_once ("PokemonNegocio.php");
 
@@ -51,7 +57,7 @@ if(isset($_GET["uuid"])){
                 </select>
             </div>
             <div>
-                <label for="nuevaDescPoke">Nuevo número único: </label>
+                <label for="nuevaDescPoke">Nueva descripción: </label>
                 <input type="text" name="nuevaDescPoke" value="<?= $poke['descripcion_pokemon'] ?>">
             </div>
             <input type="submit" name="submitCambios" value="Modificar">
