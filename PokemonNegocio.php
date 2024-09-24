@@ -1,11 +1,8 @@
 <?php
-include "Tipo.php";
-include "Pokemon.php";
 
 class PokemonNegocio
 {
     private $accesoDB;
-    private Array $pokemonList;
 
     public function __construct(AccesoDB $accesoDB)
     {
@@ -13,10 +10,10 @@ class PokemonNegocio
         $this->pokemonList = Array();
     }
 
-    public function addPokemon(Pokemon $pokemon): void
+    public function addPokemon($uuid_pokemon, $img_pokemon, $nombre, $descripcion_pokemon, $tipo): void
     {
         $sql = "INSERT INTO `pokemon` (`uuid_pokemon`, `img_pokemon`, `nombre_pokemon`, `descripcion_pokemon`, `id_tipo`) 
-                VALUES ('". $pokemon->getUuid() ."','". $pokemon->getImg() ."','". $pokemon->getNombre() ."','". $pokemon->getDescripcion() ."','". $pokemon->getTipo()->getId() ."')";
+                VALUES ('". $uuid_pokemon ."','". $img_pokemon ."','". $nombre ."','". $descripcion_pokemon ."','". $tipo ."')";
         $this->accesoDB->query($sql);
     }
 
@@ -26,23 +23,15 @@ class PokemonNegocio
         $this->accesoDB->query($sql);
     }
 
-    public function modifyPokemon(Pokemon $pokemon): void
+    public function modifyPokemon($id_pokemon, $uuid_pokemon, $img_pokemon, $nombre, $descripcion_pokemon, $tipo): void
     {
-        $sql = "UPDATE `pokemon` SET `uuid_pokemon`='". $pokemon->getUuid() ."',`img_pokemon`='". $pokemon->getImg() ."',
-                `nombre_pokemon`='". $pokemon->getNombre() ."',`descripcion_pokemon`='". $pokemon->getDescripcion() ."',
-                `id_tipo`='". $pokemon->getTipo()->getId() ."' WHERE id_pokemon=".$pokemon->getId();
+        $sql = "UPDATE `pokemon` SET `uuid_pokemon`='". $uuid_pokemon ."',`img_pokemon`='". $img_pokemon ."',
+                `nombre_pokemon`='". $nombre ."',`descripcion_pokemon`='". $descripcion_pokemon ."',
+                `id_tipo`='". $tipo ."' WHERE id_pokemon=".$id_pokemon;
         $this->accesoDB->query($sql);
     }
 
-    /**
-     * @return array
-     */
-    public function getPokemonList(): array
-    {
-        return $this->pokemonList;
-    }
-
-    public function queryPokemonList($filtro): void
+    public function queryPokemonList($filtro): array
     {
         $sql = "SELECT * FROM pokemon P JOIN tipo T ON P.id_tipo=T.id_tipo WHERE ";
         if(isset($filtro))
@@ -50,18 +39,12 @@ class PokemonNegocio
         else
             $sql .= 1;
 
-        $listaTmp = $this->accesoDB->query($sql)->fetch_all(MYSQLI_ASSOC);
+        return $this->accesoDB->query($sql)->fetch_all(MYSQLI_ASSOC);
+    }
 
-        foreach ($listaTmp as $item){
-            $tipoTmp = new Tipo($item["id_tipo"],$item["descripcion_tipo"]);
-            $pokeTmp = new Pokemon($item["id_pokemon"],
-                $item["uuid_pokemon"],
-                $item["img_pokemon"],
-                $item["nombre_pokemon"],
-                $item["descripcion_pokemon"],
-                $tipoTmp);
-
-            array_push($this->pokemonList,$pokeTmp);
-        }
+    public function buscarPokemonPorUUID($uuid)
+    {
+        $sql = "SELECT * FROM `pokemon` WHERE uuid_pokemon = '$uuid'";
+        return $this->accesoDB->query($sql)->fetch_assoc();
     }
 }

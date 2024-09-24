@@ -1,0 +1,58 @@
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-modificar {
+    background-color: yellow;
+    color: black;
+}
+
+.btn-modificar:hover {
+    background-color: gold;
+}
+
+.btn-baja {
+    background-color: red;
+    color: white;
+}
+
+.btn-baja:hover {
+    background-color: darkred;
+}
+
+
+td {
+    text-align: center;
+}
+
+
+.btn-cerrar-sesion {
+    padding: 10px 15px;
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+.btn-cerrar-sesion:active {
+    transform: scale(0.95);
+}
+
+.logout-button {
+    align-content: center;
+}
+

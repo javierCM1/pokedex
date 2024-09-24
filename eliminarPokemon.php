@@ -1,12 +1,11 @@
 <?php
-//ARCHIVO TEMPORAL?
 include "AccesoDB.php";
 include "PokemonNegocio.php";
 
 $datos = new AccesoDB();
 $pokeNegocio = new PokemonNegocio($datos);
-$idPokemon = $_POST["idPokemon"] ?? 0;
+$idPokemon = isset($_GET['id']) ? $_GET['id'] : 0;
 
 $pokeNegocio->deletePokemon($idPokemon);
-header("Location: index.php");
+header("Location: vista-admin.php");
 exit();

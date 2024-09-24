@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (isset($_SESSION['rol'])) {
-    header("Location: vista-admin.php");
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+    header("Location: index.php");
     exit;
 }
 
@@ -12,19 +12,24 @@ require_once ("PokemonNegocio.php");
 $db = new AccesoDB();
 $pokeNegocio = new PokemonNegocio($db);
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex Search</title>
+    <title>Pokedex Admin</title>
     <link rel="stylesheet" href="estilos/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="estilos/vista-admin.css">
+
 </head>
 <body>
 
-<?php include_once 'header.php'; ?>
-<?php include_once 'buscador.php'; ?>
+<?php
+include_once ("headerAdmin.php");
+include ("buscador.php");
+?>
+
 <div class="results-container">
     <table>
         <thead>
@@ -33,6 +38,7 @@ $pokeNegocio = new PokemonNegocio($db);
             <th>Tipo</th>
             <th>Número</th>
             <th>Nombre</th>
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -51,38 +57,18 @@ $pokeNegocio = new PokemonNegocio($db);
                 echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
                 echo "<td>" . $pokemon['uuid_pokemon'] . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
+                echo "<td>";
+                echo "<a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>";
+                echo "<a href='eliminarPokemon.php?id=".$pokemon['id_pokemon']."'><button class='btn-baja'>Baja</button></a>";
+                echo "</td>";
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>No se pudo realizar la consulta.</td></tr>";
+            echo "<tr><td colspan='5'>No se pudo realizar la consulta.</td></tr>";
         }
         ?>
         </tbody>
     </table>
-
-    <!-- PRUEBAS ABM COMIENZO
-    <form action="agregarPokemon.php">
-        <div>
-            <input type="submit" name="addPokemon" value="Agregar pokemon">
-        </div>
-    </form>
-    <form action="eliminarPokemon.php" method="post">
-        <div>
-            <input type="number" name="idPokemon" placeholder="Ingresa el id del pokemon">
-        </div>
-        <div>
-            <input type="submit" name="deletePokemon" value="Eliminar pokemon">
-        </div>
-    </form>
-    <form action="modificarPokemon.php">
-        <div>
-            <input type="number" name="idPokemonMod" placeholder="Ingresa el id del pokemon">
-        </div>
-        <div>
-            <input type="submit" name="modifyPokemon" value="Modificar pokemon">
-        </div>
-    </form>
-    PRUEBAS ABM FIN -->
 </div>
 
 </body>
