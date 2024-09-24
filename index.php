@@ -40,7 +40,7 @@ $pokeNegocio = new PokemonNegocio($db);
         $filtro = isset($_POST["filtroPokemon"]) ? $_POST["filtroPokemon"] : "";
         $pokemonArray = $pokeNegocio->queryPokemonList($filtro);
 
-        if (count($pokemonArray) > 0) {
+        if (count($pokemonArray) > 1) {
             foreach ($pokemonArray as $pokemon){
                 echo "<tr>";
                 echo "<td>
@@ -53,36 +53,15 @@ $pokeNegocio = new PokemonNegocio($db);
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "</tr>";
             }
+        } else if(count($pokemonArray) == 1) {
+            header('Location: pokemonDisplay.php?uuid='.$pokemonArray[0]['uuid_pokemon']);
+            exit();
         } else {
             echo "<tr><td colspan='4'>No se pudo realizar la consulta.</td></tr>";
         }
         ?>
         </tbody>
     </table>
-
-    <!-- PRUEBAS ABM COMIENZO
-    <form action="agregarPokemon.php">
-        <div>
-            <input type="submit" name="addPokemon" value="Agregar pokemon">
-        </div>
-    </form>
-    <form action="eliminarPokemon.php" method="post">
-        <div>
-            <input type="number" name="idPokemon" placeholder="Ingresa el id del pokemon">
-        </div>
-        <div>
-            <input type="submit" name="deletePokemon" value="Eliminar pokemon">
-        </div>
-    </form>
-    <form action="modificarPokemon.php">
-        <div>
-            <input type="number" name="idPokemonMod" placeholder="Ingresa el id del pokemon">
-        </div>
-        <div>
-            <input type="submit" name="modifyPokemon" value="Modificar pokemon">
-        </div>
-    </form>
-    PRUEBAS ABM FIN -->
 </div>
 
 </body>
