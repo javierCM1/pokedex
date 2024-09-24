@@ -14,5 +14,5 @@ $descripcion = isset($_POST['descripcionPoke']) ? $_POST['descripcionPoke'] : ""
 
 $pokeNegocio->addPokemon($uuid,$img,$nombre,$descripcion,$tipo);
 
-header("Location: index.php");
+header("Location: vista-admin.php");
 exit();

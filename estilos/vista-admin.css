@@ -7,6 +7,16 @@ button {
     transition: background-color 0.3s;
 }
 
+.btn-alta {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-alta:hover {
+    background-color: #409143;
+    color: white;
+}
+
 .btn-modificar {
     background-color: yellow;
     color: black;
