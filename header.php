@@ -1,4 +1,3 @@
-<?php ?>
 <header>
     <div class="container">
         <div class="logo-title">
@@ -7,8 +6,8 @@
             </a>
             <h1>Pokedex</h1>
         </div>
-        <form action="" method="post" class="login">
-            <input type="text" name="user" placeholder="Usuario">
+        <form action="validacionLogin.php" method="post" class="login">
+            <input type="text" name="usuario" placeholder="Usuario">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="submit" name="ingresar" value="Ingresar">
         </form>
