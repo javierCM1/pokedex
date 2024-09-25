@@ -55,7 +55,7 @@ include ("buscador.php");
                         </a>
                     </td>";
                 echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
-                echo "<td>" . $pokemon['uuid_pokemon'] . "</td>";
+                echo "<td>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "<td>";
                 echo "<a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>";
