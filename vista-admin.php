@@ -47,7 +47,12 @@ include ("buscador.php");
         $pokemonArray = $pokeNegocio->queryPokemonList($filtro);
 
         if(count($pokemonArray) == 0){
-            //mostrar mensaje
+            ?>
+                <div class="w3-panel w3-pale-yellow w3-display-container">
+                    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
+                    <h3>Pokemon no encontrado</h3>
+                </div>
+            <?php
             $pokemonArray = $pokeNegocio->queryPokemonList(null);
         }
 
