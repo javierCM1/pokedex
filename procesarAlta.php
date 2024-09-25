@@ -10,7 +10,7 @@ $uuid = isset($_POST['numeroPoke']) ? $_POST['numeroPoke'] : "";
 $img = "imagenes/unknown.png";
 
 if (isset($_FILES["imgPoke"]) && $_FILES["imgPoke"]["error"] == 0 && $_FILES["imgPoke"]["size"] > 0 ) {
-    $rutaImagen = "imagenes/" . $nombre . ".png";
+    $rutaImagen = "imagenes/" . strtolower($nombre) . ".png";
     move_uploaded_file($_FILES["imgPoke"]["tmp_name"], $rutaImagen);
     $img = $rutaImagen;
 }
