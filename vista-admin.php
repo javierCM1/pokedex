@@ -46,7 +46,17 @@ include ("buscador.php");
         $filtro = isset($_POST["filtroPokemon"]) ? $_POST["filtroPokemon"] : "";
         $pokemonArray = $pokeNegocio->queryPokemonList($filtro);
 
-        if (count($pokemonArray) > 0) {
+        if(count($pokemonArray) == 0){
+            ?>
+                <div class="w3-panel w3-pale-yellow w3-display-container">
+                    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
+                    <h3>Pokemon no encontrado</h3>
+                </div>
+            <?php
+            $pokemonArray = $pokeNegocio->queryPokemonList(null);
+        }
+
+        if (count($pokemonArray) > 1) {
             foreach ($pokemonArray as $pokemon){
                 echo "<tr>";
                 echo "<td>
@@ -55,7 +65,7 @@ include ("buscador.php");
                         </a>
                     </td>";
                 echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
-                echo "<td>" . $pokemon['uuid_pokemon'] . "</td>";
+                echo "<td>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "<td>";
                 echo "<a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>";
@@ -64,7 +74,8 @@ include ("buscador.php");
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='5'>No se pudo realizar la consulta.</td></tr>";
+            header('Location: pokemonDisplay.php?uuid='.$pokemonArray[0]['uuid_pokemon']);
+            exit();
         }
         ?>
         </tbody>

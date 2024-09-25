@@ -12,7 +12,9 @@ $img = isset($_POST['nuevaImgPoke']) ? "imagenes/" . $_POST['nuevaImgPoke'] : "i
 $tipo = isset($_POST['nuevoTipoPokemon']) ? $_POST['nuevoTipoPokemon'] : 0;
 $descripcion = isset($_POST['nuevaDescPoke']) ? $_POST['nuevaDescPoke'] : "";
 
-$pokeNegocio->modifyPokemon(intval($id),$uuid,$img,$nombre,$descripcion,intval($tipo));
+if($pokeNegocio->buscarPokemonPorUUID($uuid) == null){
+    $pokeNegocio->modifyPokemon(intval($id),$uuid,$img,$nombre,$descripcion,intval($tipo));
+}
 
 header('Location: vista-admin.php');
 exit();

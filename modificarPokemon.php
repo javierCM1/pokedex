@@ -26,7 +26,7 @@ if(isset($_GET["uuid"])){
     <link rel="stylesheet" href="estilos/vista-admin.css">
 </head>
 <body>
-    <?php include_once 'headerAdmin.php'; ?>
+    <?php include_once 'headerAdmin.php';?>
 
     <div class="results-container">
         <form action="procesarModificacion.php" method="post">
