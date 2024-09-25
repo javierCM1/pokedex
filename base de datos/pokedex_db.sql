@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
@@ -36,6 +37,7 @@ CREATE TABLE pokemon (
   id_tipo int(2) NOT NULL,
   PRIMARY KEY (id_pokemon)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Volcado de datos para la tabla `pokemon`
 --
@@ -50,6 +52,7 @@ INSERT INTO `pokemon` (`uuid_pokemon`, `img_pokemon`, `nombre_pokemon`, `descrip
 ('be9d4b6d7c4a9', 'imagenes/blastoise.png', 'Blastoise', 'Blastoise es la evolución final de Squirtle. Sus cañones de agua en el caparazón le permiten lanzar chorros de agua a gran presión.', 4),
 ('af5c3d8712bf2', 'imagenes/onyx.png', 'Onix', 'Onix es un Pokémon de tipo Tierra y Roca. Su cuerpo gigante de piedras le da gran resistencia y su capacidad de excavar lo hace imparable bajo tierra.', 3),
 ('ec7f2b1973cd8', 'imagenes/vulpix.png', 'Vulpix', 'Vulpix es un pequeño Pokémon de tipo Fuego. Sus seis colas le otorgan gran flexibilidad y sus ataques de fuego pueden variar en intensidad.', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -57,8 +60,9 @@ INSERT INTO `pokemon` (`uuid_pokemon`, `img_pokemon`, `nombre_pokemon`, `descrip
 --
 
 CREATE TABLE `tipo` (
-  `id_tipo` int(2) NOT NULL,
-  `descripcion_tipo` varchar(32) NOT NULL
+  `id_tipo` int(2) NOT NULL AUTO_INCREMENT,
+  `descripcion_tipo` varchar(32) NOT NULL,
+  PRIMARY KEY (id_tipo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -67,52 +71,26 @@ CREATE TABLE `tipo` (
 
 INSERT INTO `tipo` (`descripcion_tipo`) VALUES
 ('Fuego'),
-('Agua'),
 ('Planta'),
-('Veneno');
+('Tierra'),
+('Agua');
+
+-- --------------------------------------------------------
 
 --
--- Índices para tablas volcadas
+-- Relaciones entre las tablas
 --
 
---
--- Indices de la tabla `pokemon`
---
-ALTER TABLE `pokemon`
-  ADD PRIMARY KEY (`id_pokemon`),
-  ADD KEY `id_tipo` (`id_tipo`);
-
---
--- Indices de la tabla `tipo`
---
-ALTER TABLE `tipo`
-  ADD PRIMARY KEY (`id_tipo`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `pokemon`
---
-ALTER TABLE `pokemon`
-  MODIFY `id_pokemon` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `tipo`
---
-ALTER TABLE `tipo`
-  MODIFY `id_tipo` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `pokemon`
---
 ALTER TABLE `pokemon`
   ADD CONSTRAINT `pokemon_ibfk_1` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id_tipo`);
+
+--
+-- Ajuste de AUTO_INCREMENT de la tabla pokemon
+--
+
+ALTER TABLE `pokemon`
+  MODIFY `id_pokemon` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
