@@ -18,6 +18,64 @@ if(isset($_GET["uuid"])){
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
+    <style>
+        .results-container {
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .pokemon-row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+
+        .pokemon-image-container {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .pokemon-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+
+        }
+
+
+        .pokemon-details {
+            flex: 2;
+            padding-left: 20px;
+            margin-top: 50px;
+        }
+
+
+        .pokemon-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+
+        .pokemon-type {
+            width: 50px;
+            margin-right: 15px;
+        }
+
+
+        .pokemon-name {
+            font-size: 2em;
+            margin: 0;
+            color: #333;
+        }
+
+        .pokemon-description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -37,22 +95,33 @@ if(isset($_GET["uuid"])){
         $uuid_pokemon = $poke['uuid_pokemon'];
         $tipo = "tipo/tipo" . $poke['id_tipo'] . ".png";
 
-        if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'){
+        if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin') {
             $id = $poke["id_pokemon"];
-            echo "<p>$id</p>";
         }
 
-        echo "<img alt='imagen de perfil no disponible' src='$imagen'>";
-        echo "<div>";
-            echo "<br>";
-            echo "<span>
-                    <img  alt='tipo no disponible' src='$tipo'>
-                    <p>$uuid_pokemon</p>;
-                    <h1>$nombre</h1>
-                </span>";
-            echo "<br>";
-            echo "<p id='descripcionPokemon'>$descripcion</p>";
-        echo "</div>"; ?>
+        echo "<div class='pokemon-row'>";
+
+        echo "<div class='pokemon-image-container'>";
+        echo "<img class='pokemon-image' alt='Imagen no disponible' src='$imagen'>";
+        echo "</div>";
+
+        echo "<div class='pokemon-details'>";
+
+        echo "<div class='pokemon-header'>";
+
+        echo "<img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>";
+
+        echo "<h1 class='pokemon-name'>$nombre</h1>";
+        echo "</div>";
+
+        echo "<p class='pokemon-description'>$descripcion</p>";
+
+        echo "</div>";
+
+        echo "</div>";
+        ?>
+    </div>
+
     </div>
 
 </body>
