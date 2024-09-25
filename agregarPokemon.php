@@ -20,7 +20,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
 <?php include_once 'headerAdmin.php'; ?>
 
 <div class="results-container">
-    <form action="procesarAlta.php" method="post">
+    <form action="procesarAlta.php" method="post" enctype="multipart/form-data">
         <h1>Nuevo Pokemon</h1>
         <div>
             <label for="nombrePoke">Nombre: </label>
