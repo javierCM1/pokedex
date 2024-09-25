@@ -19,8 +19,10 @@ if (isset($_FILES["nuevaImgPoke"]) && $_FILES["nuevaImgPoke"]["error"] == 0 && $
 $tipo = isset($_POST['nuevoTipoPokemon']) ? $_POST['nuevoTipoPokemon'] : 0;
 $descripcion = isset($_POST['nuevaDescPoke']) ? $_POST['nuevaDescPoke'] : "";
 
-if($pokeNegocio->buscarPokemonPorUUID($uuid) == null){
-    $pokeNegocio->modifyPokemon(intval($id),$uuid,$img,$nombre,$descripcion,intval($tipo));
+$pokeBuscado = $pokeNegocio->buscarPokemonPorUUID($uuid);
+
+if($pokeBuscado == null || $pokeBuscado['id_pokemon'] == $id){
+    $pokeNegocio->modifyPokemon($id,$uuid,$img,$nombre,$descripcion,$tipo);
 }
 
 header('Location: vista-admin.php');
