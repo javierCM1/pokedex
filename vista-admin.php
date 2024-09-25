@@ -46,7 +46,12 @@ include ("buscador.php");
         $filtro = isset($_POST["filtroPokemon"]) ? $_POST["filtroPokemon"] : "";
         $pokemonArray = $pokeNegocio->queryPokemonList($filtro);
 
-        if (count($pokemonArray) > 0) {
+        if(count($pokemonArray) == 0){
+            //mostrar mensaje
+            $pokemonArray = $pokeNegocio->queryPokemonList(null);
+        }
+
+        if (count($pokemonArray) > 1) {
             foreach ($pokemonArray as $pokemon){
                 echo "<tr>";
                 echo "<td>
@@ -64,7 +69,8 @@ include ("buscador.php");
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='5'>No se pudo realizar la consulta.</td></tr>";
+            header('Location: pokemonDisplay.php?uuid='.$pokemonArray[0]['uuid_pokemon']);
+            exit();
         }
         ?>
         </tbody>

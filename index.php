@@ -40,6 +40,11 @@ $pokeNegocio = new PokemonNegocio($db);
         $filtro = isset($_POST["filtroPokemon"]) ? $_POST["filtroPokemon"] : "";
         $pokemonArray = $pokeNegocio->queryPokemonList($filtro);
 
+        if(count($pokemonArray) == 0){
+            //mostrar mensaje
+            $pokemonArray = $pokeNegocio->queryPokemonList(null);
+        }
+
         if (count($pokemonArray) > 1) {
             foreach ($pokemonArray as $pokemon){
                 echo "<tr>";
@@ -53,11 +58,9 @@ $pokeNegocio = new PokemonNegocio($db);
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "</tr>";
             }
-        } else if(count($pokemonArray) == 1) {
+        } else {
             header('Location: pokemonDisplay.php?uuid='.$pokemonArray[0]['uuid_pokemon']);
             exit();
-        } else {
-            echo "<tr><td colspan='4'>No se pudo realizar la consulta.</td></tr>";
         }
         ?>
         </tbody>
