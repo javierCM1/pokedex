@@ -29,7 +29,7 @@ if(isset($_GET["uuid"])){
     <?php include_once 'headerAdmin.php';?>
 
     <div class="results-container">
-        <form action="procesarModificacion.php" method="post">
+        <form action="procesarModificacion.php" method="post" enctype="multipart/form-data">
             <h1>Modificar Pokemon</h1>
             <div>
                 <label for="idPoke">Id: </label>
