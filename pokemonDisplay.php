@@ -19,6 +19,9 @@ if(isset($_GET["uuid"])){
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
     <style>
+
+        /* Small Devices, Tablets */
+        /* Estilos comunes */
         .results-container {
             max-width: 1200px;
             padding: 20px;
@@ -29,19 +32,17 @@ if(isset($_GET["uuid"])){
             align-items: flex-start;
         }
 
-
         .pokemon-image-container {
             flex: 1;
-            max-width: 300px;
+            max-width: 300px; /* Valor predeterminado para pantallas más grandes */
+
         }
 
         .pokemon-image {
             width: 100%;
             height: auto;
             border-radius: 8px;
-
         }
-
 
         .pokemon-details {
             flex: 2;
@@ -49,19 +50,16 @@ if(isset($_GET["uuid"])){
             margin-top: 50px;
         }
 
-
         .pokemon-header {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
 
-
         .pokemon-type {
             width: 50px;
             margin-right: 15px;
         }
-
 
         .pokemon-name {
             font-size: 2em;
@@ -75,6 +73,38 @@ if(isset($_GET["uuid"])){
             color: #555;
             text-align: left;
         }
+
+        /* Small Devices, Tablets */
+        @media only screen and (max-width: 767.98px) {
+
+     
+
+            .pokemon-row {
+                flex-direction: column; /* Hace que la fila se comporte como una columna */
+                align-items: center;
+            }
+        }
+
+        /* Medium Devices, Small Desktops */
+        @media screen and (min-width: 768px) and (max-width: 991.98px) {
+            .pokemon-image-container {
+                max-width: 300px;
+            }
+
+        }
+
+        /* Large Devices, Desktops */
+        @media screen and (min-width: 992px) {
+            .pokemon-image-container {
+                max-width: 300px; /* Ya está establecido en los estilos comunes */
+            }
+
+        }
+
+
+        }
+
+
     </style>
 </head>
 <body>
