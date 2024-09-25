@@ -12,7 +12,9 @@ $img = isset($_POST['imgPoke']) ? "imagenes/" . $_POST['imgPoke'] : "imagenes/un
 $tipo = isset($_POST['tipoPokemon']) ? $_POST['tipoPokemon'] : 0;
 $descripcion = isset($_POST['descripcionPoke']) ? $_POST['descripcionPoke'] : "";
 
-$pokeNegocio->addPokemon($uuid,$img,$nombre,$descripcion,$tipo);
+if($pokeNegocio->buscarPokemonPorUUID($uuid) == null){
+    $pokeNegocio->addPokemon($uuid,$img,$nombre,$descripcion,$tipo);
+}
 
 header("Location: vista-admin.php");
 exit();
