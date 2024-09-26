@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 button {
     padding: 10px 15px;
     border: none;
@@ -65,5 +71,21 @@ td {
 
 .logout-button {
     align-content: center;
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767.98px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    .results-container{
+position: absolute;
+    }
+    .tabla-admin{position: relative;
+    right: 20px;
+    }
+
+    .boton-agregar-Pokemon{
+        margin-right: 24px;
+    }
 }
 

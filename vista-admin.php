@@ -31,12 +31,12 @@ include ("buscador.php");
 ?>
 
 <div class="results-container">
-    <table>
+    <table class="tabla-admin">
         <thead>
         <tr>
             <th>Imagen</th>
             <th>Tipo</th>
-            <th>Número</th>
+            <th class="hide-on-mobile">Número</th>
             <th>Nombre</th>
             <th>Acciones</th>
         </tr>
@@ -65,7 +65,7 @@ include ("buscador.php");
                         </a>
                     </td>";
                 echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
-                echo "<td>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
+                echo "<td class='hide-on-mobile'>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "<td>";
                 echo "<a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>";
@@ -81,7 +81,7 @@ include ("buscador.php");
         </tbody>
     </table>
 
-    <a href='agregarPokemon.php'><button style="background-color: #4CAF50; color: white;">Agregar Pokemon</button></a>
+    <a href='agregarPokemon.php' class="boton-agregar-Pokemon"><button style="background-color: #4CAF50; color: white;">Agregar Pokemon</button></a>
 </div>
 
 </body>

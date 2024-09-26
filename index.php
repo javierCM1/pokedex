@@ -18,8 +18,10 @@ $pokeNegocio = new PokemonNegocio($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Search</title>
+
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <body>
 
@@ -29,8 +31,8 @@ $pokeNegocio = new PokemonNegocio($db);
     <table>
         <thead>
         <tr>
-            <th>Imagen</th>
-            <th>Tipo</th>
+            <th >Imagen</th>
+            <th >Tipo</th>
             <th>Número</th>
             <th>Nombre</th>
         </tr>
