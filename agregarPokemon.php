@@ -15,28 +15,34 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
 <?php include_once 'headerAdmin.php'; ?>
 
 <div class="results-container">
-    <form action="procesarAlta.php" method="post" enctype="multipart/form-data">
+    <form action="procesarAlta.php" method="post" enctype="multipart/form-data" class="row g-3">
         <h1>Nuevo Pokemon</h1>
-        <div>
-            <label for="nombrePoke">Nombre: </label>
-            <input type="text" name="nombrePoke" placeholder="Ingrese el nombre...">
+
+            <div class="col-md-6">
+                <label for="nombrePoke" class="form-label">Nuevo nombre: </label>
+                <input type="text" class="form-control" name="nombrePoke" placeholder="Ingrese el nombre...">
+            </div>
+
+        <div class="col-md-6">
+            <label for="numeroPoke" class="form-label">Numero unico:</label>
+            <input type="text" name="numeroPoke" class="form-control" readonly value="<?= uniqid() ?>">
         </div>
-        <div>
-            <label for="numeroPoke">Número único: </label>
-            <input type="text" name="numeroPoke" value="<?= uniqid() ?>">
+
+        <div class="col-md-6">
+            <label for="imgPoke" class="form-label">Imagen: </label>
+            <input type="file" class="form-control" name="imgPoke">
         </div>
-        <div>
-            <label for="imgPoke">Imagen: </label>
-            <input type="file" name="imgPoke">
-        </div>
-        <div>
-            <label for="tipoPokemon">Tipo de pokemon: </label>
-            <select name="tipoPokemon">
+
+        <div class="col-md-4">
+            <label for="tipoPokemon" class="form-label">Tipo de pokemon: </label>
+            <select name="tipoPokemon" class="form-select">
                 <option value="" disabled selected>Seleccione el tipo...</option>
                 <option value="1">Fuego</option>
                 <option value="2">Planta</option>
@@ -44,13 +50,19 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                 <option value="4">Agua</option>
             </select>
         </div>
-        <div>
-            <label for="descripcionPoke">Descripción: </label>
-            <input type="text" name="descripcionPoke" placeholder="Ingrese la descripción...">
+        
+
+        <div class="input-group">
+            <span class="input-group-text">Descripción:</span>
+            <textarea class="form-control" aria-label="With textarea" name="descripcionPoke"></textarea>
         </div>
+
         <input type="submit" name="submitCambios" value="Confirmar">
     </form>
 </div>
 
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </html>
