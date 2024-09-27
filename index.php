@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-if (isset($_SESSION['rol'])) {
+$valor = file_get_contents("cookie");
+
+if (isset($_SESSION['rol']) || (isset($_COOKIE["user"]) && $_COOKIE["user"] == $valor)) {
     header("Location: vista-admin.php");
     exit;
 }
