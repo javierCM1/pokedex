@@ -24,60 +24,39 @@ if(isset($_GET["uuid"])){
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
     <?php include_once 'headerAdmin.php';?>
 
-    <div class="results-container">
-        <form action="procesarModificacion.php" method="post" enctype="multipart/form-data">
-            <h1>Modificar Pokemon</h1>
-            <div>
-                <label for="idPoke">Id: </label>
-                <input type="number" name="idPoke" readonly value="<?= $poke['id_pokemon'] ?>">
-            </div>
-            <div>
-                <label for="nuevoNombrePoke">Nuevo nombre: </label>
-                <input type="text" name="nuevoNombrePoke" value="<?= $poke['nombre_pokemon'] ?>">
-            </div>
-            <div>
-                <label for="nuevoNumeroPoke">Nuevo número único: </label>
-                <input type="text" name="nuevoNumeroPoke" value="<?= $poke['uuid_pokemon'] ?>">
-            </div>
-            <div>
-                <label for="nuevaImgPoke">Nueva imagen: </label>
-                <input type="file" name="nuevaImgPoke">
-            </div>
 
-            <div>
-                <label for="nuevaDescPoke">Nueva descripción: </label>
-                <input type="text" name="nuevaDescPoke" value="<?= $poke['descripcion_pokemon'] ?>">
-            </div>
-            <input type="submit" name="submitCambios" value="Modificar">
-        </form>
-    </div>
+    <form action="procesarModificacion.php" method="post" enctype="multipart/form-data" class="row g-3">
+        <h1>Modificar Pokemon</h1>
 
+        <div class="col-md-6">
+            <label for="nuevoNombrePoke" class="form-label">Nuevo nombre: </label>
+            <input type="text" class="form-control" name="nuevoNombrePoke" value="<?= $poke['nombre_pokemon'] ?>">
+        </div>
 
-    <form class="row g-3">
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">nombre</label>
-            <input type="text" class="form-control" id="inputEmail4">
+            <label for="idPoke" class="form-label">Nuevo Id:</label>
+            <input type="number" name="idPoke" class="form-control" readonly value="<?= $poke['id_pokemon'] ?>">
         </div>
+
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">id</label>
-            <input type="text" class="form-control" id="inputPassword4">
+            <label for="nuevoNumeroPoke"  class="form-label">Nuevo número único: </label>
+            <input type="text" class="form-control" name="nuevoNumeroPoke" value="<?= $poke['uuid_pokemon'] ?>">
         </div>
-        <div class="col-12">
-            <label for="inputAddress" class="form-label">Nuevo número único:</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-            <label for="inputAddress2" class="form-label">Descripcion</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
+
         <div class="col-md-6">
-            <label for="inputCity" class="form-label">Imagen</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label for="nuevaImgPoke" class="form-label">Nueva imagen: </label>
+            <input type="file" class="form-control" name="nuevaImgPoke">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Nueva descripcion</span>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
         </div>
 
 
@@ -92,22 +71,12 @@ if(isset($_GET["uuid"])){
             </select>
         </div>
 
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
-            </div>
-        </div>
         <div class="col-12">
             <input type="submit" name="submitCambios" value="Modificar">
         </div>
     </form>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </html>
