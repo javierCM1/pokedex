@@ -15,12 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
         $_SESSION['rol'] = $user['rol'];
 
-        $valor = md5(time());
-        setcookie("user",$valor,time()+3600);
-        file_put_contents("cookie",$valor);
-
         if ($user['rol'] === 'admin') {
             header("Location: vista-admin.php");
+        } else {
+            header("Location: vista-usuario.php");
         }
         exit;
     } else {

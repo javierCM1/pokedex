@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-$valor = file_get_contents("cookie");
-
-if ((!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') && (!isset($_COOKIE["user"]) && $_COOKIE["user"] != $valor)) {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
     header("Location: index.php");
     exit;
 }
