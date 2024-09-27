@@ -78,14 +78,15 @@ td {
         display: none;
     }
     .results-container{
-position: absolute;
+        position: absolute;
     }
-    .tabla-admin{position: relative;
-    right: 20px;
+    .tabla-admin{
+        position: relative;
+        right: 1em;
     }
 
     .boton-agregar-Pokemon{
-        margin-right: 24px;
+        margin-right: 2em;
     }
 }
 
