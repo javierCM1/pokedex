@@ -27,12 +27,12 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
 
             <div class="col-md-6">
                 <label for="nombrePoke" class="form-label">Nuevo nombre: </label>
-                <input type="text" class="form-control" name="nombrePoke" placeholder="Ingrese el nombre...">
+                <input type="text" class="form-control" name="nombrePoke" required placeholder="Ingrese el nombre...">
             </div>
 
         <div class="col-md-6">
             <label for="numeroPoke" class="form-label">Numero unico:</label>
-            <input type="text" name="numeroPoke" class="form-control" readonly value="<?= uniqid() ?>">
+            <input type="text" name="numeroPoke" class="form-control" value="<?= uniqid() ?>">
         </div>
 
         <div class="col-md-6">
@@ -42,7 +42,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
 
         <div class="col-md-4">
             <label for="tipoPokemon" class="form-label">Tipo de pokemon: </label>
-            <select name="tipoPokemon" class="form-select">
+            <select name="tipoPokemon" class="form-select" required>
                 <option value="" disabled selected>Seleccione el tipo...</option>
                 <option value="1">Fuego</option>
                 <option value="2">Planta</option>
