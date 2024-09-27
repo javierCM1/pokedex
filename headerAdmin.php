@@ -1,18 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a href="index.php" style="text-decoration: none">
+            <a href="vista-admin.php" style="text-decoration: none">
                 <img src="imagenes/logo.png" alt="logo" class="logo">
+                <h1 style="display: inline">Pokedex Admin</h1>
             </a>
-            <h1>Pokedex Admin</h1>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="ms-auto mb-2 mb-lg-0">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="  nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
                     <li  class="nav-item">
                         <a href="cerrar-sesion.php" class="btn-cerrar-sesion nav-link active">Cerrar Sesión</a>
                     </li>
