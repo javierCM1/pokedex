@@ -25,9 +25,14 @@ class PokemonNegocio
 
     public function modifyPokemon($id_pokemon, $uuid_pokemon, $img_pokemon, $nombre, $descripcion_pokemon, $tipo): void
     {
-        $sql = "UPDATE `pokemon` SET `uuid_pokemon`='". $uuid_pokemon ."',`img_pokemon`='". $img_pokemon ."',
-                `nombre_pokemon`='". $nombre ."',`descripcion_pokemon`='". $descripcion_pokemon ."',
+        $sql = "UPDATE `pokemon` SET `uuid_pokemon`='". $uuid_pokemon ."',";
+
+        if($img_pokemon != "")
+            $sql .= "`img_pokemon`='". $img_pokemon ."',";
+
+        $sql .= "`nombre_pokemon`='". $nombre ."',`descripcion_pokemon`='". $descripcion_pokemon ."',
                 `id_tipo`='". $tipo ."' WHERE id_pokemon=".$id_pokemon;
+
         $this->accesoDB->query($sql);
     }
 

@@ -8,9 +8,9 @@ $pokeNegocio = new PokemonNegocio($datos);
 $id = isset($_POST['idPoke']) ? $_POST['idPoke'] : 0;
 $nombre = isset($_POST['nuevoNombrePoke']) ? $_POST['nuevoNombrePoke'] : "";
 $uuid = isset($_POST['nuevoNumeroPoke']) ? $_POST['nuevoNumeroPoke'] : "";
-$img = "imagenes/unknown.png";
+$conservarImg = isset($_POST['conservarImg']);
 
-if (isset($_FILES["nuevaImgPoke"]) && $_FILES["nuevaImgPoke"]["error"] == 0 && $_FILES["nuevaImgPoke"]["size"] > 0 ) {
+if (!$conservarImg && isset($_FILES["nuevaImgPoke"]) && $_FILES["nuevaImgPoke"]["error"] == 0 && $_FILES["nuevaImgPoke"]["size"] > 0 ) {
     $rutaImagen = "imagenes/" . strtolower($nombre) . ".png";
     move_uploaded_file($_FILES["nuevaImgPoke"]["tmp_name"], $rutaImagen);
     $img = $rutaImagen;

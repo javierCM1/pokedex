@@ -51,13 +51,16 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
             </select>
         </div>
 
-
         <div class="input-group">
             <span class="input-group-text">Descripción:</span>
             <textarea class="form-control" aria-label="With textarea" name="descripcionPoke"></textarea>
         </div>
 
-        <input type="submit" name="submitCambios" value="Confirmar">
+        <div class="col-md-12">
+            <a href="vista-admin.php" style="text-decoration: none"> <button name="btnCancelar" class="btn btn-secondary">Cancelar</button> </a>
+            <input type="submit" name="submitPokemon" value="Confirmar" class="btn btn-primary">
+        </div>
+
     </form>
 </div>
 
