@@ -56,12 +56,12 @@ if(isset($_GET["uuid"])){
 
         <div class="input-group">
             <span class="input-group-text">Nueva descripcion</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea class="form-control" aria-label="With textarea" name="nuevaDescPoke"></textarea>
         </div>
 
 
         <div class="col-md-4">
-            <label for="inputState" class="form-label">Nuevo Tipo</label>
+            <label for="nuevoTipoPokemon" class="form-label">Nuevo Tipo</label>
             <select name="nuevoTipoPokemon" class="form-select">
                 <option value="" selected>Nuevo tipo</option>
                 <option value="1" <?php if ($poke['id_tipo']==1) echo "selected='selected'" ?> >Fuego</option>
