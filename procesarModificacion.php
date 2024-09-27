@@ -9,9 +9,11 @@ $id = isset($_POST['idPoke']) ? $_POST['idPoke'] : 0;
 $nombre = isset($_POST['nuevoNombrePoke']) ? $_POST['nuevoNombrePoke'] : "";
 $uuid = isset($_POST['nuevoNumeroPoke']) ? $_POST['nuevoNumeroPoke'] : "";
 $conservarImg = isset($_POST['conservarImg']);
+$img = "";
 
 if (!$conservarImg && isset($_FILES["nuevaImgPoke"]) && $_FILES["nuevaImgPoke"]["error"] == 0 && $_FILES["nuevaImgPoke"]["size"] > 0 ) {
     $rutaImagen = "imagenes/" . strtolower($nombre) . ".png";
+    unlink($rutaImagen);
     move_uploaded_file($_FILES["nuevaImgPoke"]["tmp_name"], $rutaImagen);
     $img = $rutaImagen;
 }

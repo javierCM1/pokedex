@@ -43,7 +43,11 @@ if(isset($_GET["uuid"])){
                 <input type="text" class="form-control" name="nuevoNumeroPoke" value="<?= $poke['uuid_pokemon'] ?>">
             </div>
 
-            <div class="col-md-6" style="margin-top: 3em">
+            <div class="col-md-1">
+                <img src="<?= $poke['img_pokemon'] ?>" alt="<?= $poke['img_pokemon'] ?>" class="img-thumbnail">
+            </div>
+
+            <div class="col-md-5" style="margin-top: 3em">
                 <div class="input-group">
                     <div class="input-group-text">
                         <input type="checkbox" aria-label="Checkbox for following text input" name="conservarImg">
@@ -73,7 +77,7 @@ if(isset($_GET["uuid"])){
                 <textarea class="form-control" aria-label="With textarea" name="nuevaDescPoke"><?= $poke['descripcion_pokemon'] ?></textarea>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="idPoke" class="form-label">Id:</label>
                 <input type="number" name="idPoke" class="form-control" readonly value="<?= $poke['id_pokemon'] ?>">
             </div>
