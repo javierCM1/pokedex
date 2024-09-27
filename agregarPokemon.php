@@ -50,7 +50,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                 <option value="4">Agua</option>
             </select>
         </div>
-        
+
 
         <div class="input-group">
             <span class="input-group-text">Descripción:</span>

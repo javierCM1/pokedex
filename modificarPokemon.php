@@ -56,7 +56,7 @@ if(isset($_GET["uuid"])){
 
         <div class="input-group">
             <span class="input-group-text">Nueva descripcion</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea class="form-control" aria-label="With textarea" name="nuevaDescPoke"></textarea>
         </div>
 
 
