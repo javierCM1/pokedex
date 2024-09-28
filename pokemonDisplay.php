@@ -18,13 +18,20 @@ if(isset($_GET["uuid"])){
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-
         /* Small Devices, Tablets */
         /* Estilos comunes */
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;
+        }
+
         .results-container {
-            max-width: 1200px;
+            max-width: 80%;
             padding: 20px;
         }
 
@@ -36,7 +43,7 @@ if(isset($_GET["uuid"])){
         .pokemon-image-container {
             flex: 1;
             max-width: 300px; /* Valor predeterminado para pantallas más grandes */
-
+            margin-right: 5em;
         }
 
         .pokemon-image {
@@ -54,12 +61,13 @@ if(isset($_GET["uuid"])){
         .pokemon-header {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 3em;
         }
 
         .pokemon-type {
-            width: 50px;
-            margin-right: 15px;
+            width: 74px;
+            height: 27px;
+            margin-right: 1em;
         }
 
         .pokemon-name {
@@ -101,11 +109,6 @@ if(isset($_GET["uuid"])){
             }
 
         }
-
-
-        }
-
-
     </style>
 </head>
 <body>
@@ -130,31 +133,25 @@ if(isset($_GET["uuid"])){
             $id = $poke["id_pokemon"];
         }
 
-        echo "<div class='pokemon-row'>";
-
-        echo "<div class='pokemon-image-container'>";
-        echo "<img class='pokemon-image' alt='Imagen no disponible' src='$imagen'>";
-        echo "</div>";
-
-        echo "<div class='pokemon-details'>";
-
-        echo "<div class='pokemon-header'>";
-
-        echo "<img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>";
-
-        echo "<h1 class='pokemon-name'>$nombre</h1>";
-        echo "</div>";
-
-        echo "<p class='pokemon-description'>$descripcion</p>";
-
-        echo "</div>";
-
-        echo "</div>";
-        ?>
+        echo
+        "<div class='pokemon-row'>
+            <div class='pokemon-image-container'>
+                <img class='pokemon-image' alt='Imagen no disponible' src='$imagen'>
+            </div>
+            
+            <div class='pokemon-details'>
+                <div class='pokemon-header'>
+                    <img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>
+                    <h1 class='pokemon-name'>$nombre</h1>
+                </div>
+                <div class='w3-margin-top w3-light-gray w3-padding w3-round-xlarge'>
+                    <p class='pokemon-description'>$descripcion</p>
+                </div>
+            </div>
+        </div>"; ?>
     </div>
 
-    </div>
-
+    <?php include_once("footer.html"); ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

@@ -15,8 +15,16 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
     <title>Pokedex Search</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/vista-admin.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;
+        }
+    </style>
 </head>
 <body>
 <?php include_once 'headerAdmin.php'; ?>
@@ -63,7 +71,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
 
     </form>
 </div>
-
+<?php include_once("footer.html"); ?>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

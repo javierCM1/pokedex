@@ -40,7 +40,9 @@ class PokemonNegocio
     {
         $sql = "SELECT * FROM pokemon P JOIN tipo T ON P.id_tipo=T.id_tipo WHERE ";
         if(isset($filtro))
-            $sql .= "nombre_pokemon LIKE '%". $filtro ."%' OR descripcion_tipo LIKE '%". $filtro ."%'";
+            $sql .= "nombre_pokemon LIKE '%". $filtro ."%' 
+            OR descripcion_tipo LIKE '%". $filtro ."%' 
+            OR uuid_pokemon LIKE '%". $filtro ."%'";
         else
             $sql .= 1;
 

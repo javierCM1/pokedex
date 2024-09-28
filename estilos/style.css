@@ -118,3 +118,10 @@ th, td {
     text-align: left;
 }
 
+footer {
+    margin-top: 0; /* take available whitespace */
+    margin-bottom: -10px;      /* remove bottom whitespace */
+    padding-bottom: 5px;
+    height: 2.5rem;
+}
+

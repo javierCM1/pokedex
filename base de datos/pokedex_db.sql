@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2024 a las 02:40:12
+-- Tiempo de generación: 28-09-2024 a las 16:02:49
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,7 +70,7 @@ CREATE TABLE `tipo` (
 INSERT INTO `tipo` (`id_tipo`, `descripcion_tipo`) VALUES
 (1, 'Fuego'),
 (2, 'Planta'),
-(3, 'Tierra'),
+(3, 'Roca'),
 (4, 'Agua');
 
 -- --------------------------------------------------------
@@ -123,7 +123,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `id_pokemon` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pokemon` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`

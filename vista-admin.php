@@ -65,7 +65,7 @@ include ("buscador.php");
                             <img src='" . $pokemon['img_pokemon'] . "' alt='' width='80' height='80'>
                         </a>
                     </td>";
-                echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
+                echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='74' height='27'></td>";
                 echo "<td class='hide-on-mobile'>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "<td>
@@ -84,7 +84,7 @@ include ("buscador.php");
 
     <a href='agregarPokemon.php' class="boton-agregar-Pokemon"><button class="btn-alta">Agregar Pokemon</button></a>
 </div>
-
+<?php include_once("footer.html"); ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

@@ -61,7 +61,7 @@ $pokeNegocio = new PokemonNegocio($db);
                             <img src='" . $pokemon['img_pokemon'] . "' alt='' width='80' height='80'>
                         </a>
                     </td>";
-                echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='50' height='50'></td>";
+                echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='74' height='27'></td>";
                 echo "<td>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
                 echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
                 echo "</tr>";
@@ -74,7 +74,7 @@ $pokeNegocio = new PokemonNegocio($db);
         </tbody>
     </table>
 </div>
-
+<?php include_once("footer.html"); ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
