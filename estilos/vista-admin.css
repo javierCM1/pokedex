@@ -77,14 +77,6 @@ td {
     .hide-on-mobile {
         display: none;
     }
-    .results-container{
-        position: absolute;
-    }
-    .tabla-admin{
-        position: relative;
-        right: 1em;
-    }
-
     .boton-agregar-Pokemon{
         margin-right: 2em;
     }

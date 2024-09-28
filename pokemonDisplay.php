@@ -23,12 +23,6 @@ if(isset($_GET["uuid"])){
     <style>
         /* Small Devices, Tablets */
         /* Estilos comunes */
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 2.5rem;
-        }
 
         .results-container {
             max-width: 80%;
@@ -44,6 +38,7 @@ if(isset($_GET["uuid"])){
             flex: 1;
             max-width: 300px; /* Valor predeterminado para pantallas más grandes */
             margin-right: 5em;
+            margin-top: 3em;
         }
 
         .pokemon-image {
@@ -121,35 +116,37 @@ if(isset($_GET["uuid"])){
     }
     ?>
 
-    <div class="results-container">
-        <?php
-        $imagen = $poke['img_pokemon'];
-        $descripcion = $poke['descripcion_pokemon'];
-        $nombre = $poke['nombre_pokemon'];
-        $uuid_pokemon = $poke['uuid_pokemon'];
-        $tipo = "tipo/tipo" . $poke['id_tipo'] . ".png";
+    <main>
+        <div class="results-container">
+            <?php
+            $imagen = $poke['img_pokemon'];
+            $descripcion = $poke['descripcion_pokemon'];
+            $nombre = $poke['nombre_pokemon'];
+            $uuid_pokemon = $poke['uuid_pokemon'];
+            $tipo = "tipo/tipo" . $poke['id_tipo'] . ".png";
 
-        if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin') {
-            $id = $poke["id_pokemon"];
-        }
+            if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin') {
+                $id = $poke["id_pokemon"];
+            }
 
-        echo
-        "<div class='pokemon-row'>
-            <div class='pokemon-image-container'>
-                <img class='pokemon-image' alt='Imagen no disponible' src='$imagen'>
-            </div>
-            
-            <div class='pokemon-details'>
-                <div class='pokemon-header'>
-                    <img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>
-                    <h1 class='pokemon-name'>$nombre</h1>
+            echo
+            "<div class='pokemon-row'>
+                <div class='pokemon-image-container'>
+                    <img class='pokemon-image' alt='Imagen no disponible' src='$imagen'>
                 </div>
-                <div class='w3-margin-top w3-light-gray w3-padding w3-round-xlarge'>
-                    <p class='pokemon-description'>$descripcion</p>
+                
+                <div class='pokemon-details'>
+                    <div class='pokemon-header'>
+                        <img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>
+                        <h1 class='pokemon-name'>$nombre</h1>
+                    </div>
+                    <div class='w3-margin-top w3-light-gray w3-padding w3-round-xlarge'>
+                        <p class='pokemon-description'>$descripcion</p>
+                    </div>
                 </div>
-            </div>
-        </div>"; ?>
-    </div>
+            </div>"; ?>
+        </div>
+    </main>
 
     <?php include_once("footer.html"); ?>
 </body>
