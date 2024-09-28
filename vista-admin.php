@@ -60,20 +60,23 @@ $pokeNegocio = new PokemonNegocio($db);
 
                 if (count($pokemonArray) > 1) {
                     foreach ($pokemonArray as $pokemon){
-                        echo "<tr>";
-                        echo "<td>
-                        <a href='pokemonDisplay.php?uuid=".$pokemon['uuid_pokemon']."' style='display=block;'>
-                            <img src='" . $pokemon['img_pokemon'] . "' alt='' width='80' height='80'>
-                        </a>
-                    </td>";
-                        echo "<td><img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' width='74' height='27'></td>";
-                        echo "<td class='hide-on-mobile'>" . substr($pokemon['uuid_pokemon'], -4) . "</td>";
-                        echo "<td>" . $pokemon['nombre_pokemon'] . "</td>";
-                        echo "<td>
-                        <a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>
-                        <a href='eliminarPokemon.php?id=".$pokemon['id_pokemon']."'><button class='btn-baja'>Baja</button></a>
-                    </td>";
-                        echo "</tr>";
+                        echo "
+                            <tr>
+                                <td>
+                                    <a href='pokemonDisplay.php?uuid=".$pokemon['uuid_pokemon']."' style='display=block;'>
+                                        <img src='" . $pokemon['img_pokemon'] . "' alt='' width='80' height='80'>
+                                    </a>
+                                </td>
+                                <td>
+                                    <img src='tipo/tipo" . $pokemon['id_tipo'] . ".png' alt='' class='img-tipo'>
+                                </td>
+                                <td class='hide-on-mobile'>" . substr($pokemon['uuid_pokemon'], -4) . "</td>
+                                <td>" . $pokemon['nombre_pokemon'] . "</td>
+                                <td>
+                                    <a href='modificarPokemon.php?uuid=".$pokemon['uuid_pokemon']."'><button class='btn-modificar'>Modificar</button></a>
+                                    <a href='eliminarPokemon.php?id=".$pokemon['id_pokemon']."'><button class='btn-baja'>Baja</button></a>
+                                </td>
+                            </tr>";
                     }
                 } else {
                     header('Location: pokemonDisplay.php?uuid='.$pokemonArray[0]['uuid_pokemon']);

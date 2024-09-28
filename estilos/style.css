@@ -134,8 +134,15 @@ footer {
     min-height: 2.5rem;
 }
 
+.img-tipo {
+    width: 74px;
+    height: 27px;
+}
+
 @media only screen and (max-width: 767.98px) {
-    main {
-        margin-left: 0;
+    table {
+        width: 100%;
+        margin-bottom: 2em;
+        border-collapse: collapse;
     }
 }

@@ -46,7 +46,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                 <label for="tipoPokemon" class="form-label">Tipo de pokemon: </label>
                 <select name="tipoPokemon" class="form-select" required>
                     <option value="" disabled selected>Seleccione el tipo...</option>
-                    <option value="1">Fuego</option>
+                    <option value="1" style="background-image:url('tipo/tipo1.png');">Fuego</option>
                     <option value="2">Planta</option>
                     <option value="3">Tierra</option>
                     <option value="4">Agua</option>
