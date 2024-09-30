@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2024 a las 16:02:49
+-- Tiempo de generación: 30-09-2024 a las 19:44:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -50,7 +50,7 @@ INSERT INTO `pokemon` (`id_pokemon`, `uuid_pokemon`, `img_pokemon`, `nombre_poke
 (8, 'af5c3d8712bf2', 'imagenes/onyx.png', 'Onix', 'Onix es un Pokémon de tipo Tierra y Roca. Su cuerpo gigante de piedras le da gran resistencia y su capacidad de excavar lo hace imparable bajo tierra.', 3),
 (9, '66f303cdf1777', 'imagenes/vulpix.png', 'Vulpix', 'Vulpix es un pokemon', 1),
 (10, '66e5fa249fa49', 'imagenes/charmander.png', 'Charmander', 'Charmander es un pequeño lagarto bípedo. Sus características de fuego son resaltadas por su color de piel anaranjado y su cola con la punta envuelta en llamas.', 1),
-(11, '66f33a8349f6a', 'imagenes/gyarados.png', 'Gyarados ', 'Cuando aparece, monta en cólera. No deja de estar furioso hasta que lo destruye todo.', 4);
+(11, '66f33a8349f6a', 'imagenes/gyarados.png', 'Gyarados', 'Cuando aparece, monta en cólera. No deja de estar furioso hasta que lo destruye todo.', 4);
 
 -- --------------------------------------------------------
 
