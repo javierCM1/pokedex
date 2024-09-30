@@ -59,7 +59,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
             </div>
 
             <div class="col-md-12">
-                <a href="vista-admin.php" style="text-decoration: none"> <button name="btnCancelar" class="btn btn-secondary">Cancelar</button> </a>
+                <a href="vista-admin.php" style="text-decoration: none" class="btn btn-secondary">Cancelar</a>
                 <input type="submit" name="submitPokemon" value="Confirmar" class="btn btn-primary">
             </div>
 
