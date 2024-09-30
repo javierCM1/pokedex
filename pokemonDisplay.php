@@ -56,7 +56,7 @@ if(isset($_GET["uuid"])){
         .pokemon-header {
             display: flex;
             align-items: center;
-            margin-bottom: 3em;
+            margin-bottom: 2em;
         }
 
         .pokemon-type {
@@ -76,6 +76,13 @@ if(isset($_GET["uuid"])){
             line-height: 1.6;
             color: #555;
             text-align: left;
+        }
+
+        .pokemon-numero {
+            font-size: 1em;
+            color: #fff;
+            text-align: center;
+            padding: 0.2em;
         }
 
         /* Small Devices, Tablets */
@@ -139,6 +146,9 @@ if(isset($_GET["uuid"])){
                     <div class='pokemon-header'>
                         <img class='pokemon-type' alt='Tipo no disponible' src='$tipo'>
                         <h1 class='pokemon-name'>$nombre</h1>
+                    </div>
+                    <div class='w3-gray w3-round-xlarge'>   
+                        <p class='pokemon-numero'>N° $uuid_pokemon</p>
                     </div>
                     <div class='w3-margin-top w3-light-gray w3-padding w3-round-xlarge'>
                         <p class='pokemon-description'>$descripcion</p>
