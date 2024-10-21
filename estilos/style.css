@@ -19,6 +19,9 @@ main {
     flex: 1;
 }
 
+
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -129,6 +132,7 @@ th, td {
     text-align: left;
 }
 
+<<<<<<< HEAD
 footer {
     margin-bottom: 0;
     min-height: 2.5rem;
@@ -146,3 +150,43 @@ footer {
         border-collapse: collapse;
     }
 }
+=======
+/* CSS PARA VIEW DE POKEMON ELEGIDO*/
+
+#datosPokemon{
+    display: flex;
+    border-color: red;
+    background: red;
+    flex-direction: column;
+
+}
+
+#seccionPokemon {
+    display: grid;
+    grid-template-columns: 0fr 2fr;
+    margin: 3em;
+}
+
+#tipoPokemon{
+    height: 2em;
+    width: 2em;
+    margin-right: 1em;
+}
+
+#nombrePokemon{
+    display: inline;
+}
+
+#idPokemon{
+    font-size: 2em;
+    display: inline;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+#perfilPokemon{
+    height: 20em;
+    width: 20em;
+}
+
+>>>>>>> origin/kevin
